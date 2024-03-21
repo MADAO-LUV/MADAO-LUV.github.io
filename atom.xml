@@ -3,11 +3,11 @@
   <title>MADAO</title>
   <icon>https://www.gravatar.com/avatar/ae2a6c03a9e90f5d585dcd23ed6f88c8</icon>
   <subtitle>BOSS SAMA拜托了!</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://madao-luv.github.io/"/>
   <updated>2024-03-19T16:43:24.996Z</updated>
-  <id>http://example.com/</id>
+  <id>https://madao-luv.github.io/</id>
   
   <author>
     <name>MADAO</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title></title>
-    <link href="http://example.com/posts/0.html"/>
-    <id>http://example.com/posts/0.html</id>
+    <link href="https://madao-luv.github.io/posts/0.html"/>
+    <id>https://madao-luv.github.io/posts/0.html</id>
     <published>2024-03-19T16:35:56.179Z</published>
     <updated>2024-03-19T16:43:24.996Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/posts/4a17b156.html"/>
-    <id>http://example.com/posts/4a17b156.html</id>
+    <link href="https://madao-luv.github.io/posts/4a17b156.html"/>
+    <id>https://madao-luv.github.io/posts/4a17b156.html</id>
     <published>2024-03-18T16:23:00.968Z</published>
     <updated>2024-03-19T09:47:12.903Z</updated>
     
