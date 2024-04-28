@@ -6,7 +6,7 @@
   <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
   <link href="https://madao-luv.github.io/"/>
-  <updated>2024-04-28T14:54:28.785Z</updated>
+  <updated>2024-04-28T14:56:31.083Z</updated>
   <id>https://madao-luv.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://madao-luv.github.io/posts/4055ee82.html"/>
     <id>https://madao-luv.github.io/posts/4055ee82.html</id>
     <published>2024-04-28T14:33:55.300Z</published>
-    <updated>2024-04-28T14:54:28.785Z</updated>
+    <updated>2024-04-28T14:56:31.083Z</updated>
     
-    <content type="html"><![CDATA[<p>**Time:2024.4.28<br><p class='p center h3'>1.GPIO端口进行编程作为模拟输入功能，内部操作包括:1.输出缓存器被禁止 2.施密特触发器输入停用，I/O引脚的每个模拟输入的功耗变为零 3.弱上拉和下拉电阻被关闭 4.对输入数据寄存器的读访问值为'0'</p><br><p class='p center h3'>2.stm32GPIO支持4种输出模式:开漏输出，开漏复用输出，推挽输出，推挽复用输出。 Tips: 下拉只能用来输入'</p><br><p class='p center h3'>3. STM32GPIO支持三种最大翻转速度:2MHz</p></p>]]></content>
+    <content type="html"><![CDATA[<p>**Time:2024.4.28<br><p class='p center h3'>1.GPIO端口进行编程作为模拟输入功能，内部操作包括:1.输出缓存器被禁止 2.施密特触发器输入停用，I/O引脚的每个模拟输入的功耗变为零 3.弱上拉和下拉电阻被关闭 4.对输入数据寄存器的读访问值为'0'</p><br><p class='p center h3'>2.stm32GPIO支持4种输出模式:开漏输出，开漏复用输出，推挽输出，推挽复用输出。 Tips: 下拉只能用来输入'</p></p><ol><li>STM32GPIO支持三种最大翻转速度:2MHz,10Mhz,50Mhz，所以最大不能超过50Mhz， Tips:不存在GPIO_IN_INIT_LOW,实际上当引脚设置为输入时，其状态对应当时引脚外部的电平状态。</li></ol>]]></content>
     
     
     <summary type="html">一些STM32的知识</summary>
