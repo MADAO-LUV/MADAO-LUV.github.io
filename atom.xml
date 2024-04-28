@@ -6,7 +6,7 @@
   <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
   <link href="https://madao-luv.github.io/"/>
-  <updated>2024-04-23T02:44:26.255Z</updated>
+  <updated>2024-04-28T14:51:02.486Z</updated>
   <id>https://madao-luv.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STM32知识每日更新</title>
+    <link href="https://madao-luv.github.io/posts/4055ee82.html"/>
+    <id>https://madao-luv.github.io/posts/4055ee82.html</id>
+    <published>2024-04-28T14:33:55.300Z</published>
+    <updated>2024-04-28T14:51:02.486Z</updated>
+    
+    <content type="html"><![CDATA[<p>**Time:2024.4.28<br><p class='p center h3'>1.GPIO端口进行编程作为模拟输入功能，内部操作包括:1.输出缓存器被禁止 2.施密特触发器输入停用，I/O引脚的每个模拟输入的功耗变为零 3.弱上拉和下拉电阻被关闭 4.对输入数据寄存器的读访问值为'0'</p><br><p class='p center h3'>2.stm32GPIO支持4种输出模式:开漏输出，开漏复用输出，推挽输出，推挽复用输出。 Tips: 下拉只能用来输入'</p><br><p class='p center h3'>3. STM32GPIO支持三种最大翻转速度:2MHz</p></p>]]></content>
+    
+    
+    <summary type="html">一些STM32的知识</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>flutter类的细节</title>
