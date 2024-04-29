@@ -6,7 +6,7 @@
   <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
   <link href="https://madao-luv.github.io/"/>
-  <updated>2024-04-29T16:02:16.677Z</updated>
+  <updated>2024-04-29T16:03:59.514Z</updated>
   <id>https://madao-luv.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://madao-luv.github.io/posts/b0e2bb20.html"/>
     <id>https://madao-luv.github.io/posts/b0e2bb20.html</id>
     <published>2024-04-29T15:32:58.413Z</published>
-    <updated>2024-04-29T16:02:16.677Z</updated>
+    <updated>2024-04-29T16:03:59.514Z</updated>
     
-    <content type="html"><![CDATA[<p class='p center logo large'>STM32的主要外设</p><p><strong>1.NVIC—-嵌套向量中断控制器    2.SysTick—-系统滴答定时器: 它们是内核里的外设  </strong>3.RCC—-复位和时钟控制 这个外设十分重要,因为其他的外设再上电的情况下默认是没有时钟的，那么不给时钟的情况下，操作其他外设是无效的，外设不会工作,因此我们需要RCC来配置相应外设的时钟—-使能其时钟<br><strong>4.GPIO—-通用IO口(用于输入和输出),5.AFIO—-复用IO口(因为每个端口除了GPIO口所定义的功能以外，还有别的功能也可以在该端口实现，就是通过AFIO进行配置，复用的意思就是再次使用-个人理解),其次还有中断端口配置  </strong>6.EXTI—-外部中断，当引脚有电平变化时,触发中断<br><strong>7.TIM—-定时器(十分重要,因为是经常使用,功能最大的外设)—-用处:生成PWM波形,测频率,配置成专用编码器接口  </strong>8.ADC—-模数转化器(Analog Digital Conversioner)—-举个例子:汽车发动机的冷冻装置,热电偶的原理<br><strong>9.DMA—-直接内存访问(类似于STM32F103C8的小秘书,帮助STM32F103C8完成大量数据的搬运,减轻STM32F103C8的压力)  </strong>10.USART—-同步/异步串口通信(实际上用异步串口比较多),这个可以用于串口通信,串口下载程序<br><strong>11.I2C通信,以及12.SPI通信,以及13.CAN通信(这个应用于汽车领域较多),14.USB通信  </strong>15.RTC—-实时时钟(原理是时间戳秒数的总数来计算—-年,月,日,时,分,秒),可以做车载时钟<br>**16.</p>]]></content>
+    <content type="html"><![CDATA[<p class='p center logo large'>STM32的主要外设</p><p><strong>1.NVIC—-嵌套向量中断控制器    </strong>2.SysTick—-系统滴答定时器: 它们是内核里的外设<br><strong>3.RCC—-复位和时钟控制 这个外设十分重要,因为其他的外设再上电的情况下默认是没有时钟的，那么不给时钟的情况下，操作其他外设是无效的，外设不会工作,因此我们需要RCC来配置相应外设的时钟—-使能其时钟    </strong>4.GPIO—-通用IO口(用于输入和输出),5.AFIO—-复用IO口(因为每个端口除了GPIO口所定义的功能以外，还有别的功能也可以在该端口实现，就是通过AFIO进行配置，复用的意思就是再次使用-个人理解),其次还有中断端口配置<br><strong>6.EXTI—-外部中断，当引脚有电平变化时,触发中断  </strong>7.TIM—-定时器(十分重要,因为是经常使用,功能最大的外设)—-用处:生成PWM波形,测频率,配置成专用编码器接口<br><strong>8.ADC—-模数转化器(Analog Digital Conversioner)—-举个例子:汽车发动机的冷冻装置,热电偶的原理  </strong>9.DMA—-直接内存访问(类似于STM32F103C8的小秘书,帮助STM32F103C8完成大量数据的搬运,减轻STM32F103C8的压力)<br><strong>10.USART—-同步/异步串口通信(实际上用异步串口比较多),这个可以用于串口通信,串口下载程序  </strong>11.I2C通信,以及12.SPI通信,以及13.CAN通信(这个应用于汽车领域较多),14.USB通信<br><strong>15.RTC—-实时时钟(原理是时间戳秒数的总数来计算—-年,月,日,时,分,秒),可以做车载时钟  </strong>16.</p>]]></content>
     
     
     <summary type="html">基础外设与解释</summary>
