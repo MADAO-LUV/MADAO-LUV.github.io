@@ -6,7 +6,7 @@
   <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
   <link href="https://madao-luv.github.io/"/>
-  <updated>2024-05-07T16:00:27.035Z</updated>
+  <updated>2024-05-07T16:14:02.148Z</updated>
   <id>https://madao-luv.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://madao-luv.github.io/posts/842d5faf.html"/>
     <id>https://madao-luv.github.io/posts/842d5faf.html</id>
     <published>2024-05-07T15:51:28.421Z</published>
-    <updated>2024-05-07T16:00:27.035Z</updated>
+    <updated>2024-05-07T16:14:02.148Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="小车基本运动之最重要的—-PWM"><a href="#小车基本运动之最重要的—-PWM" class="headerlink" title="小车基本运动之最重要的—-PWM"></a>小车基本运动之最重要的—-PWM</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="小车基本运动之最重要的—-PWM"><a href="#小车基本运动之最重要的—-PWM" class="headerlink" title="小车基本运动之最重要的—-PWM"></a>小车基本运动之最重要的—-PWM</h1><p>为何这个<strong>PWM（脉冲宽度）</strong>如此重要呢？因为在具有惯性的系统中，我们可以通过对一系列脉冲的宽度进行调制，来等效地获得我们所需要的模拟量，经常用于<strong>电机控速</strong>等领域（属于是常客了）<br>举一个例子:比如说我的占空比为50%,那么在这个一个PWM的周期内，电机处于高电平的时间是只有周期的一半，低电平默认为0，那么我们计算等效电压—-( T(on) <em> 5v + T(off) </em> 0v ) / Ts = 等效电压V 所以50%占空比可以等效为2.5v电压<br>通过这个等效电压的例子，也为我们如何控制电机的速度以及呼吸灯等等一系列工业生产提供了新的思路—-<strong>通过PWM（即控制占空比）来控制等效电压—-从而GPIO配置为复用推挽输出，定时器的四个通道（STM32外设）来控制引脚输出</strong>  </p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;小车基本运动之最重要的—-PWM&quot;&gt;&lt;a href=&quot;#小车基本运动之最重要的—-PWM&quot; class=&quot;headerlink&quot; title=&quot;小车基本运动之最重要的—-PWM&quot;&gt;&lt;/a&gt;小车基本运动之最重要的—-PWM&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;小车基本运动之最重要的—-PWM&quot;&gt;&lt;a href=&quot;#小车基本运动之最重要的—-PWM&quot; class=&quot;headerlink&quot; title=&quot;小车基本运动之最重要的—-PWM&quot;&gt;&lt;/a&gt;小车基本运动之最重要的—-PWM&lt;/h1&gt;&lt;p&gt;为何这个&lt;strong&gt;PW</summary>
       
     
     
