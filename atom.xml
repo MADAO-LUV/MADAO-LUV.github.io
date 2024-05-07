@@ -6,7 +6,7 @@
   <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
   <link href="https://madao-luv.github.io/"/>
-  <updated>2024-04-30T06:36:32.999Z</updated>
+  <updated>2024-05-07T16:00:27.035Z</updated>
   <id>https://madao-luv.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>蓝牙小车开发时的一些细节</title>
+    <link href="https://madao-luv.github.io/posts/842d5faf.html"/>
+    <id>https://madao-luv.github.io/posts/842d5faf.html</id>
+    <published>2024-05-07T15:51:28.421Z</published>
+    <updated>2024-05-07T16:00:27.035Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="小车基本运动之最重要的—-PWM"><a href="#小车基本运动之最重要的—-PWM" class="headerlink" title="小车基本运动之最重要的—-PWM"></a>小车基本运动之最重要的—-PWM</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;小车基本运动之最重要的—-PWM&quot;&gt;&lt;a href=&quot;#小车基本运动之最重要的—-PWM&quot; class=&quot;headerlink&quot; title=&quot;小车基本运动之最重要的—-PWM&quot;&gt;&lt;/a&gt;小车基本运动之最重要的—-PWM&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>STM32的一些必备知识与自我认知</title>
