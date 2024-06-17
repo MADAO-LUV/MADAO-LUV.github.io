@@ -6,7 +6,7 @@
   <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
   <link href="https://madao-luv.github.io/"/>
-  <updated>2024-06-04T01:23:54.240Z</updated>
+  <updated>2024-06-17T16:43:55.608Z</updated>
   <id>https://madao-luv.github.io/</id>
   
   <author>
@@ -21,7 +21,9 @@
     <link href="https://madao-luv.github.io/posts/14ee3806.html"/>
     <id>https://madao-luv.github.io/posts/14ee3806.html</id>
     <published>2024-06-04T01:10:35.022Z</published>
-    <updated>2024-06-04T01:23:54.240Z</updated>
+    <updated>2024-06-17T16:43:55.608Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>2024-6-18-更新</strong> 我们要实现PID算法，需要<strong>反馈值</strong>。那么，这个值，我们该怎么获取呢？  这里我拿平衡小车举个例子。我们的平衡小车；既然想要做到平衡且不倒的话，就需要把它的三轴角速度和三轴加速度的值放到PID算法中，然后得出值再运用到PWM，最后通过PWM来控制电机调动。(MPU6050可以胜任)<br>所以我们的思路如下:  </p><ol><li>I2C来获取MPU6050的六轴数据Data</li><li>把获取的Data 传输到 PID算法中获取反馈值 Tes</li><li>再把Tes用与PWM中</li><li>PWM调控电机模块(我称为Motor)<br>那么事不宜迟，开始吧!!!<br><img src="https://tse2-mm.cn.bing.net/th/id/OIP-C._hky6fwlTmniEcA4v51hIwHaEK?rs=1&amp;pid=ImgDetMain" alt="fighting" title="劳累在校生"><h1 id="MPU6050模块"><a href="#MPU6050模块" class="headerlink" title="MPU6050模块"></a>MPU6050模块</h1><h2 id="2-1-何为MPU6050？"><a href="#2-1-何为MPU6050？" class="headerlink" title="2.1 何为MPU6050？"></a>2.1 何为MPU6050？</h2><img src="https://user-images.githubusercontent.com/107638696/241324971-43b8fe88-447d-4c2d-9296-4b3aaa50f4ce.png" alt="MPU6050" title="MPU6050"><br><strong>1.MPU6050是一个6轴姿态传感器（3轴加速度计和3轴陀螺仪传感器），可以测量芯片自身X、Y、Z轴的加速度、角度参数(角速度)，通过数据融合，可以得到姿态角(由上图所示)。并且我们可以看到横向的是x轴，而纵向的为y轴，垂直与芯片的为z轴，这里我们可以类比中学时期的立体几何坐标图</strong>  </li></ol><p><img src="https://clubimg.szlcsc.com/upload/postuploadimage/image/2018-10-26/A9B9913E977B434C84CEB252E6506B84_189.png" alt="姿态角" title="姿态角 此图借用"><br><strong>2. 以立创给的图为例，飞机机身对应三个轴的夹角，机头下倾或者上仰，这个轴的夹角叫俯仰（pitch）。飞机机身左翻滚或者右翻滚，这个轴的夹角叫做滚转（roll），飞机机身向左转向或者向右转向，这个轴的夹角叫做偏航（raw）。(2024-6-18 记得插入解释视频)</strong>  </p><p><strong>续—-欧拉角是为表示姿态的一种参数。为了保持飞机的姿态平稳（无人机也是）我们必须得到一个精确且问题的角；（此处—-江协科技有提过）一种传感器不能获得精确且稳定的欧拉角，要获得精确稳定的欧拉角，需要多个传感器进行数据融合。常见的数据融合算法有互补滤波、卡尔曼滤波等。</strong></p>]]></content>
     
     
     <summary type="html">pid控制介绍</summary>
