@@ -6,7 +6,7 @@
   <link href="https://madao-luv.github.io/atom.xml" rel="self"/>
   
   <link href="https://madao-luv.github.io/"/>
-  <updated>2024-06-24T16:24:38.094Z</updated>
+  <updated>2024-07-11T12:32:31.401Z</updated>
   <id>https://madao-luv.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电赛训练代码hal库</title>
+    <link href="https://madao-luv.github.io/posts/a78b3962.html"/>
+    <id>https://madao-luv.github.io/posts/a78b3962.html</id>
+    <published>2024-07-10T16:00:00.000Z</published>
+    <updated>2024-07-11T12:32:31.401Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h1><p>因为我在网上发现很多的相关代码的偶联性太大了，所以就有了分享一些独立模块的操作代码的想法。<br>事不宜迟，我们开始吧。</p><h1 id="1-UART-串口通信"><a href="#1-UART-串口通信" class="headerlink" title="1.UART 串口通信"></a>1.UART 串口通信</h1><p>对于串口通信，我们通常用来调试代码是否正确，就用串口来调解的。于是，我想分享一个可以快速调节的代码，来帮助各位更好地调试自己的代码，我是用的是uart1，芯片是stm32f103c8t6的,对应的引脚是PB9,PB10。</p><h2 id="1-UART-头文件"><a href="#1-UART-头文件" class="headerlink" title="1.UART 头文件"></a>1.UART 头文件</h2><p>我是将这些自定义的模块分开包装实现独立模块化,于是我建立一个单独的文件夹(Hardware)来放自己建立的独立模块。</p><p>然后我定义的这个模块名字叫”Debug”—-可以按照自己喜欢的方式定义，没有影响。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __DEBUG_H__</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __DEBUG_H__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;main.h&quot;</span>  <span class="comment">/*这个是为了引入cubemx在main.h帮我们定义的一些文件，于是我们就不用重复定义了*/</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG_EN 1  <span class="comment">//这个是为了解开在Debug.c的文件中DEBUG_EN 这个和我命名的文件无关哈</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">My_Printf</span><span class="params">(<span class="type">char</span> *p,...)</span>;  <span class="comment">//就是类似于printf</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p><h2 id="2-UART-源文件"><a href="#2-UART-源文件" class="headerlink" title="2.UART 源文件"></a>2.UART 源文件</h2><p>具体的代码实现<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Debug.h&quot;</span>  <span class="comment">//引入自己的头文件，避免重复定义</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>  <span class="comment">//为了引入格式化操作</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart1;<span class="comment">//进行外部声明</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//格式化可变变量字符串缓存 这里我们给的缓存大一点好些，防止溢出</span></span><br><span class="line"><span class="type">char</span> formatBuf[<span class="number">128</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">My_printf</span><span class="params">(<span class="type">char</span> *p,...)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*格式化数据*/</span></span><br><span class="line">    va_list ap;</span><br><span class="line">    va_start(ap,p);</span><br><span class="line">    <span class="built_in">vsprintf</span>(formatBuf,p,ap);</span><br><span class="line">    va_end(ap);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> DEBUG_EN</span></span><br><span class="line">    HAL_UART_Transmit(&amp;huart1,(<span class="type">uint8_t</span> *)formatBuf,<span class="built_in">strlen</span>(formatBuf),<span class="number">1</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p><h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p><img src="https://ts1.cn.mm.bing.net/th/id/R-C.b2b9e2e19aa34905771a4956e36cb898?rik=2GPfRiq0aOQdag&amp;riu=http%3a%2f%2fimage.tianjimedia.com%2fuploadImages%2f2010%2f221%2f0122327KRMZE_028.jpg&amp;ehk=q1EzXNjY083lQrtuQTHOaMjw14DVJlyAJtwWMKxDWrw%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0 谢谢" alt="你好"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;缘由&quot;&gt;&lt;a href=&quot;#缘由&quot; class=&quot;headerlink&quot; title=&quot;缘由&quot;&gt;&lt;/a&gt;缘由&lt;/h1&gt;&lt;p&gt;因为我在网上发现很多的相关代码的偶联性太大了，所以就有了分享一些独立模块的操作代码的想法。&lt;br&gt;事不宜迟，我们开始吧。&lt;/p&gt;
+&lt;h1 i</summary>
+      
+    
+    
+    
+    
+    <category term="Match" scheme="https://madao-luv.github.io/tags/Match/"/>
+    
+  </entry>
   
   <entry>
     <title>STM32一些模块的源码</title>
